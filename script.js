@@ -12,9 +12,10 @@ const githubData = (data) => {
     <span>
       <i class="fa-solid fa-location-dot"></i>
       <h1>${data.location}</h1>
+      <img style="width: 32px" src="src/brazil.png"/>
     </span>
     <h3>${stacks[0]}</h3>
-    <h3>Technologies:</h3>
+    <h3>Stacks:</h3>
   `
 
   html += '<ul class="stacks">'

@@ -53,6 +53,10 @@ section.profile {
   gap: 5px;
 }
 
+.profile-info span i {
+  color: crimson;
+}
+
 .profile-info .stacks {
   display: flex;
   align-items: center;
