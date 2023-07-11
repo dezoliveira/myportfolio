@@ -1,9 +1,10 @@
 let profile = document.getElementById('profile')
 
 const githubData = (data) => {
-  let stacks = data.bio.split("|")
+  const stacks = data.bio.split("|")
+  console.log(stacks)
+
   let html = ''
-  console.log(data)
   html += '<div class="profile-info">'
 
   html += `
@@ -21,10 +22,39 @@ const githubData = (data) => {
   html += '<ul class="stacks">'
   
   for(let i = 1; i < stacks.length; i++) {
-    html += `<i class="fa-brands"></i><li>${stacks[i]}</li>`
+    let icons = stacks[i].trim().toLowerCase().replace('.', '')
+
+    if (icons === 'html')
+      icons = 'html5'
+
+    if (icons === 'css')
+      icons = 'css3'
+
+    if (icons === 'javascript')
+      icons = 'js'
+
+    if (icons === 'reactjs')
+      icons = 'react'
+
+    if (icons === 'api')
+      icons = 'node'
+
+    icons = "fa" + "-" + icons
+    //
+    html += `
+    <li>
+      <div class="icon">
+        <i class="fa-brands ${icons}"></i>
+      </div>
+      <div class="title">
+        ${stacks[i]}
+      </div>
+    </li>
+    `
   }
 
   html += '</ul>'
+
   html += '</div>'
 
   profile.innerHTML = html
