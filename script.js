@@ -1,6 +1,7 @@
-let profile = document.getElementById('profile')
+const profile = document.getElementById('profile')
+const projects = document.getElementById('projects')
 
-const githubData = (data) => {
+const loadProfile = (data) => {
   const stacks = data.bio.split("|")
   console.log(stacks)
 
@@ -8,8 +9,10 @@ const githubData = (data) => {
   html += '<div class="profile-info">'
 
   html += `
+    <label class="title">Profile</label>
     <img src="${data.avatar_url}"/>
     <h1>${data.name}</h1>
+    <h3>Git: ${data.html_url}<h3>
     <span>
       <i class="fa-solid fa-location-dot"></i>
       <h1>${data.location}</h1>
@@ -46,9 +49,9 @@ const githubData = (data) => {
       <div class="icon">
         <i class="fa-brands ${icons}"></i>
       </div>
-      <div class="title">
+      <span>
         ${stacks[i]}
-      </div>
+      </span>
     </li>
     `
   }
@@ -58,7 +61,29 @@ const githubData = (data) => {
   html += '</div>'
 
   profile.innerHTML = html
+ 
 }
+
+const loadProjects = async(data) => {
+  console.log(data)
+  const url = data.repos_url
+  const response = await fetch(url)
+  const repos = await response.json()
+
+  projects.innerHTML += `
+   <label class="title">teste</label> 
+  `
+
+  for (let i in repos){
+    console.log(repos[i])
+  }
+  
+}
+
+const githubData = (data) => {
+  loadProfile(data)
+  loadProjects(data)
+ }
 
 const githubApi = async () => {
   user = 'dezoliveira'
