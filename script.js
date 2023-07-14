@@ -69,14 +69,31 @@ const loadProjects = async(data) => {
   const url = data.repos_url
   const response = await fetch(url)
   const repos = await response.json()
+  let html = ''
 
-  projects.innerHTML += `
-   <label class="title">teste</label> 
+  html += '<div class="projects">'
+
+  html += `
+   <label class="title">Projects</label> 
   `
 
   for (let i in repos){
     console.log(repos[i])
+    html += `
+      <div class="card">
+        <div class="card-title">
+          <h1>${repos[i].name}</h1>
+        </div>
+        <div class="card-body">
+          <img src="./src/project${i}.png"
+        </div>
+      </div>
+    ` 
   }
+
+  html += '</div>'
+
+  projects.innerHTML = html
   
 }
 

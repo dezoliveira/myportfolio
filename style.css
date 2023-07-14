@@ -45,7 +45,7 @@ a {
   font-weight: 500;
 }
 
-section.profile, section.projects {
+.profile {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,4 +105,28 @@ section.profile, section.projects {
 
 .stacks .icon i {
   font-size: 24px;
+}
+
+section .projects {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-gap: 4rem;
+  grid-template-columns: repeat(1,1fr);
+  justify-items: center;
+  align-items: center;
+  grid-auto-columns: auto;
+  width: 100%;
+  padding: 25px;
+}
+
+.projects .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.projects .card .card-body img{
+  width: 300px;
 }
