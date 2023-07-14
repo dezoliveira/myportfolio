@@ -85,7 +85,7 @@ const loadProjects = async(data) => {
           <h1>${repos[i].name}</h1>
         </div>
         <div class="card-body">
-          <img src="./src/project${i}.png"
+          <img src="https://i.ibb.co/r3j725k/project12.png"/>
         </div>
       </div>
     ` 
