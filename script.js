@@ -1,5 +1,6 @@
 const profile = document.getElementById('profile')
 const projects = document.getElementById('projects')
+const cloneRepo = document.getElementById('cloneRepo')
 
 const loadProfile = (data) => {
   const stacks = data.bio.split("|")
@@ -64,11 +65,25 @@ const loadProfile = (data) => {
  
 }
 
+const copyLink = async (link) => {
+  console.log(link)
+  navigator.clipboard.writeText(link)
+  alert(
+    `
+      Copiado para área de tranferência!\n
+      Link: ${link}
+      Abra um terminal git e digite:\n
+      git clone "{{ o link copiado}}"
+    `
+  )
+}
+
 const loadProjects = async(data) => {
   console.log(data)
   const url = data.repos_url
   const response = await fetch(url)
   const repos = await response.json()
+
 
   let html = ''
 
@@ -81,6 +96,7 @@ const loadProjects = async(data) => {
   for (let i in repos){
     let projectName = repos[i].name
     let projectImage = 'https://i.ibb.co/GFvs7qq/default.png'
+    let cloneUrl = repos[i].clone_url
 
     if (projectName === 'AgendaJS')
       projectImage = "https://i.ibb.co/FXhDVGr/AgendaJS.png"
@@ -88,25 +104,25 @@ const loadProjects = async(data) => {
     if (projectName === 'flexblog')
       projectImage = "https://i.ibb.co/FJ4sHnr/flexblog.png"
 
-    if (projectName === 'javacriptform')
+    if (projectName === 'javascriptform')
       projectImage = "https://i.ibb.co/RQGfdD8/javascriptform.png"
 
-    if (projectImage === 'JSCalendar')     
-      projectImage === "https://i.ibb.co/dGhNKt2/JSCalendar.png"
+    if (projectName === 'JSCalendar')     
+      projectImage = "https://i.ibb.co/dGhNKt2/JSCalendar.png"
 
     if (projectName === 'love-calculator')
       projectImage = "https://i.ibb.co/hcNdHJ5/love-calculator.png"
 
-    if (projectName === 'pizzaria-JS')
-      projectImage = "https://i.ibb.co/ZcQ46nH/pizzaria-JS.png"
+    if (projectName === 'pizzariaJS')
+      projectImage = "https://i.ibb.co/ZcQ46nH/pizzariaJS.png"
 
-    if (projectName === 'pokegenarator')
+    if (projectName === 'pokegenerator')
       projectImage = "https://i.ibb.co/3cX3S6G/pokegenerator.png"
 
     if (projectName === 'randommeal')
       projectImage = "https://i.ibb.co/K01WLCw/randommeal.png"
 
-    if (projectName === 'randompet')
+    if (projectName === 'ramdompet')
       projectImage = "https://i.ibb.co/6PVSQdF/randompet.png"
 
     if (projectName === 'reactmonsters')
@@ -125,9 +141,23 @@ const loadProjects = async(data) => {
       <div class="card">
         <div class="card-title">
           <h1>${projectName}</h1>
+          <div class="project-status">
+            <span class="project-visibility">
+              <div class="circle"></div>
+              <h5>${repos[i].visibility}</h5>
+            </span>
+            <span id="cloneRepo" onclick="copyLink('${cloneUrl}')">
+              <label>Clone Repo</label> 
+              <i class="fa-brands fa-git-alt"></i>
+            </span>
+          </div>
+          <h5>${repos[i].language}</h5>
         </div>
         <div class="card-body">
           <img src="${projectImage}"/>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" id="showMore">Ver Mais</button>
         </div>
       </div>
     ` 

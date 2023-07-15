@@ -120,13 +120,47 @@ section .projects {
 }
 
 .projects .card {
+
+}
+
+.projects .project-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.project-visibility {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 50px;
+  gap: 5px;
 }
 
 .projects .card .card-body img{
   width: 300px;
+}
+
+.projects .card .card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.btn {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: crimson;
 }
