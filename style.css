@@ -18,11 +18,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-around;
-
   position: absolute;
   width: 100%;
   top: 0;
-
   background-color: black;
   padding: 10px;
 }
@@ -81,6 +79,23 @@ a {
   align-items: center;
   justify-content: center;
   gap: 25px;
+}
+
+.stacks {
+  overflow-y: hidden;
+  width: 300px;
+}
+
+.arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.arrows .arrow-left,
+.arrows .arrow-right {
+  font-size: 35px;
 }
 
 .stacks li {

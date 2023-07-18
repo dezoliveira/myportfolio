@@ -13,7 +13,6 @@ const loadProfile = (data) => {
     <label class="title">Profile</label>
     <img src="${data.avatar_url}"/>
     <h1>${data.name}</h1>
-    <h3>Git: ${data.html_url}<h3>
     <span>
       <i class="fa-solid fa-location-dot"></i>
       <h1>${data.location}</h1>
@@ -23,7 +22,11 @@ const loadProfile = (data) => {
     <h3>Stacks:</h3>
   `
 
-  html += '<ul class="stacks">'
+  html += '<div class="arrows">'
+
+  html += '<span class="arrow arrow-left"> < </span>'
+
+  html += '<ul id="stacks" class="stacks">'
   
   for(let i = 1; i < stacks.length; i++) {
     let icons = stacks[i].trim().toLowerCase().replace('.', '')
@@ -59,9 +62,15 @@ const loadProfile = (data) => {
 
   html += '</ul>'
 
+  html += '<span class="arrow arrow-right"> > </span>'
+
+  html += '</div>'
+
   html += '</div>'
 
   profile.innerHTML = html
+
+  scroolStacks()
  
 }
 
@@ -76,6 +85,14 @@ const copyLink = async (link) => {
       git clone "{{ o link copiado}}"
     `
   )
+}
+
+const toggleModal = () => {
+  alert('modal')
+}
+
+const showMore = () => {
+  toggleModal()
 }
 
 const loadProjects = async(data) => {
@@ -146,7 +163,10 @@ const loadProjects = async(data) => {
               <div class="circle"></div>
               <h5>${repos[i].visibility}</h5>
             </span>
-            <span id="cloneRepo" onclick="copyLink('${cloneUrl}')">
+            <span 
+              id="cloneRepo" 
+              onclick="copyLink('${cloneUrl}')"
+            >
               <label>Clone Repo</label> 
               <i class="fa-brands fa-git-alt"></i>
             </span>
@@ -157,7 +177,7 @@ const loadProjects = async(data) => {
           <img src="${projectImage}"/>
         </div>
         <div class="card-footer">
-          <button class="btn btn-primary" id="showMore">Ver Mais</button>
+          <button class="btn btn-primary" id="showMore" onclick="showMore(${repos[i].id})">Ver Mais</button>
         </div>
       </div>
     ` 
@@ -179,6 +199,25 @@ const githubApi = async () => {
   const response = await fetch(`https://api.github.com/users/${user}`)
   const data = await response.json()
   githubData(data)
+}
+
+const scroolStacks = () => {
+  const stacks = document.getElementById('stacks')
+  const arrows = document.getElementsByClassName('arrow')
+  for (let arrow of arrows) {
+    arrow.addEventListener('click', (e) => {
+      if (arrow.className.includes('left')) {
+        stacks.scrollLeft += -50;
+        e.preventDefault()
+      }
+
+      if (arrow.className.includes('right')) {
+        stacks.scrollLeft += 50;
+
+        e.preventDefault()
+      }
+    })
+  }
 }
 
 githubApi()
