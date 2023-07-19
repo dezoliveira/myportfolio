@@ -87,12 +87,26 @@ const copyLink = async (link) => {
   )
 }
 
-const toggleModal = () => {
-  alert('modal')
+const toggleModal = (id) => {
+  let node = document.getElementById(id)
+  let cloneNode = node.cloneNode(true)
+  let backdrop = document.querySelector(".backdrop")
+  let modal = document.querySelector(".modal")
+
+  backdrop.classList.remove('hide')
+  document.body.style.overflow = 'hidden'
+
+  backdrop.addEventListener('click', () => {
+    backdrop.classList.add('hide')
+    document.body.style.overflow = 'auto'
+  })
+
+  modal.innerHTML = ""
+  modal.appendChild(cloneNode)
 }
 
-const showMore = () => {
-  toggleModal()
+const showMore = (id) => {
+  toggleModal(id)
 }
 
 const loadProjects = async(data) => {
@@ -155,7 +169,7 @@ const loadProjects = async(data) => {
       projectImage = "https://i.ibb.co/qrYn3k0/vuesouls.png"
 
     html += `
-      <div class="card">
+      <div id="${repos[i].id}" class="card">
         <div class="card-title">
           <h1>${projectName}</h1>
           <div class="project-status">
@@ -177,7 +191,13 @@ const loadProjects = async(data) => {
           <img src="${projectImage}"/>
         </div>
         <div class="card-footer">
-          <button class="btn btn-primary" id="showMore" onclick="showMore(${repos[i].id})">Ver Mais</button>
+          <button 
+            class="btn btn-primary" 
+            id="showMore" 
+            onclick="toggleModal(${repos[i].id})"
+          >
+            Ver Mais
+          </button>
         </div>
       </div>
     ` 
@@ -213,7 +233,6 @@ const scroolStacks = () => {
 
       if (arrow.className.includes('right')) {
         stacks.scrollLeft += 50;
-
         e.preventDefault()
       }
     })
