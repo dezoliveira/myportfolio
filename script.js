@@ -1,6 +1,7 @@
 const profile = document.getElementById('profile')
 const projects = document.getElementById('projects')
 const cloneRepo = document.getElementById('cloneRepo')
+const backdrop = document.querySelector(".backdrop")
 
 const loadProfile = (data) => {
   const stacks = data.bio.split("|")
@@ -101,12 +102,39 @@ const toggleModal = (id) => {
     document.body.style.overflow = 'auto'
   })
 
+
+  let btnShowMore = cloneNode.children[2].children[0]
+  btnShowMore.remove()
+
+  let cardFooter = cloneNode.children[2]
+
+  cardFooter.innerHTML = `
+    <div class="btn-group">
+      <button class="btn btn-github">Github</button>
+      <button class="btn btn-live">Live Project</button>
+    <div>
+  `
+ 
   modal.innerHTML = ""
+  modal.innerHTML += `
+    <span 
+      id="modal-close" 
+      class="close-icon"
+      click="modalClose()"
+    >
+      <i class="fa fa-times"></i>
+    </span>  
+  `
   modal.appendChild(cloneNode)
 }
 
 const showMore = (id) => {
   toggleModal(id)
+}
+
+const modalClose = () => {
+  backdrop.classList.remove('hide')
+  document.body.style.overflow = 'hidden' 
 }
 
 const loadProjects = async(data) => {
