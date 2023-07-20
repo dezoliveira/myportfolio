@@ -2,6 +2,7 @@ const profile = document.getElementById('profile')
 const projects = document.getElementById('projects')
 const cloneRepo = document.getElementById('cloneRepo')
 const backdrop = document.querySelector(".backdrop")
+// let arrProjects = []
 
 const loadProfile = (data) => {
   const stacks = data.bio.split("|")
@@ -89,6 +90,7 @@ const copyLink = async (link) => {
 }
 
 const toggleModal = (id) => {
+  // console.log(arrProjects)
   let node = document.getElementById(id)
   let cloneNode = node.cloneNode(true)
   let backdrop = document.querySelector(".backdrop")
@@ -97,9 +99,11 @@ const toggleModal = (id) => {
   backdrop.classList.remove('hide')
   document.body.style.overflow = 'hidden'
 
-  backdrop.addEventListener('click', () => {
-    backdrop.classList.add('hide')
-    document.body.style.overflow = 'auto'
+  backdrop.addEventListener('click', (e) => {
+    if(e.target.className != 'modal') {
+      backdrop.classList.add('hide')
+      document.body.style.overflow = 'auto'
+    }
   })
 
 
@@ -110,8 +114,20 @@ const toggleModal = (id) => {
 
   cardFooter.innerHTML = `
     <div class="btn-group">
-      <button class="btn btn-github">Github</button>
-      <button class="btn btn-live">Live Project</button>
+      <a href="">
+        <button 
+          class="btn btn-github"
+        >
+          Github
+        </button>
+      </a>
+      <a href="">
+        <button 
+          class="btn btn-live"
+        >
+          Live Project
+        </button>
+      </a>
     <div>
   `
  
@@ -143,6 +159,9 @@ const loadProjects = async(data) => {
   const response = await fetch(url)
   const repos = await response.json()
 
+  // for (let r in repos) {
+  //   arrProjects.push(repos)
+  // }
 
   let html = ''
 

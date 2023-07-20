@@ -102,6 +102,10 @@ a {
   font-size: 35px;
 }
 
+.stacks {
+  transition: all 0.5s ease;
+}
+
 .stacks li {
   display: flex;
   flex-direction: column;
