@@ -110,16 +110,24 @@ const toggleModal = (id) => {
 
   let btnShowMore = cloneNode.children[2].children[0]
   btnShowMore.remove()
-
+  let cardBody = cloneNode.children[1]
   let cardFooter = cloneNode.children[2]
 
   let project = repos.filter((repo) => repo.id === id)
 
   let url = project[0].html_url
   let live = `https://${project[0].owner.login}.github.io/${project[0].name}`
-  console.log(project)
+  let haspages = project[0].has_pages
+  let description = project[0].description
+  console.log(project[0].description)
 
-  cardFooter.innerHTML = `
+  if (description) {
+    cardBody.innerHTML += `
+        <p>${description}</p>
+    `
+  }
+
+  cardFooter.innerHTML += `
     <div class="btn-group">
       <a href="${url}" target="_blank">
         <button 
@@ -130,7 +138,10 @@ const toggleModal = (id) => {
       </a>
       <a href="${live}" target="_blank">
         <button 
-          class="btn btn-live"
+          ${!haspages ? 
+              'class="btn-disabled"' 
+            : 'class="btn btn-live"'}
+          ${!haspages && 'disabled'}
         >
           Live Project
         </button>

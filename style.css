@@ -182,6 +182,14 @@ section .projects {
 
 .btn-primary {
   background-color: crimson;
+  border: 1px solid crimson;
+}
+
+.btn-disabled {
+  padding: 8px 12px;
+  border: 0.1px solid gray;
+  color: gray;
+  border-radius: 5px;
 }
 
 .hide {
@@ -218,6 +226,26 @@ section .projects {
   width: 250px;
 }
 
+.modal .card .card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal .card .card-title h1 {
+  font-size: x-large;
+}
+
+.modal .card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-align: justify;
+}
+
 .modal .card .card-footer {
   display: flex;
   align-items: center;
@@ -226,10 +254,12 @@ section .projects {
 
 .btn-github {
   background-color: #a855f7;
+  border: 1px solid #a855f7;
 }
 
 .btn-live {
   background-color: #06b6d4;
+  border: 1px solid #06b6d4;
 }
 
 .close-icon {
