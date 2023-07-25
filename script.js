@@ -2,6 +2,7 @@ const profile = document.getElementById('profile')
 const projects = document.getElementById('projects')
 const cloneRepo = document.getElementById('cloneRepo')
 const backdrop = document.querySelector(".backdrop")
+let repos = []
 // let arrProjects = []
 
 const loadProfile = (data) => {
@@ -90,6 +91,7 @@ const copyLink = async (link) => {
 }
 
 const toggleModal = (id) => {
+  console.log(id)
   // console.log(arrProjects)
   let node = document.getElementById(id)
   let cloneNode = node.cloneNode(true)
@@ -106,22 +108,27 @@ const toggleModal = (id) => {
     }
   })
 
-
   let btnShowMore = cloneNode.children[2].children[0]
   btnShowMore.remove()
 
   let cardFooter = cloneNode.children[2]
 
+  let project = repos.filter((repo) => repo.id === id)
+
+  let url = project[0].html_url
+  let live = `https://${project[0].owner.login}.github.io/${project[0].name}`
+  console.log(project)
+
   cardFooter.innerHTML = `
     <div class="btn-group">
-      <a href="">
+      <a href="${url}" target="_blank">
         <button 
           class="btn btn-github"
         >
           Github
         </button>
       </a>
-      <a href="">
+      <a href="${live}" target="_blank">
         <button 
           class="btn btn-live"
         >
@@ -144,10 +151,6 @@ const toggleModal = (id) => {
   modal.appendChild(cloneNode)
 }
 
-const showMore = (id) => {
-  toggleModal(id)
-}
-
 const modalClose = () => {
   backdrop.classList.remove('hide')
   document.body.style.overflow = 'hidden' 
@@ -156,8 +159,9 @@ const modalClose = () => {
 const loadProjects = async(data) => {
   console.log(data)
   const url = data.repos_url
-  const response = await fetch(url)
-  const repos = await response.json()
+  const pages = '?&per_page=50'
+  const response = await fetch(url + pages)
+  repos = await response.json()
 
   // for (let r in repos) {
   //   arrProjects.push(repos)
@@ -235,7 +239,9 @@ const loadProjects = async(data) => {
           <h5>${repos[i].language}</h5>
         </div>
         <div class="card-body">
-          <img src="${projectImage}"/>
+          <a href="${projectImage}" target="_blank">
+            <img src="${projectImage}"/>
+          </a>
         </div>
         <div class="card-footer">
           <button 
