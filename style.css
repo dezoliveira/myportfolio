@@ -156,6 +156,17 @@ section .projects {
   gap: 5px;
 }
 
+.card .card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .card-title .project-status {
+  gap: 15px;
+}
+
 .card .card-body img{
   width: 300px;
 }
@@ -242,7 +253,7 @@ section .projects {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  padding: 25px;
   text-align: justify;
 }
 
