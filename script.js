@@ -110,8 +110,15 @@ const toggleModal = (id) => {
 
   let btnShowMore = cloneNode.children[2].children[0]
   btnShowMore.remove()
+
+  let lang = cloneNode.children[0].children[2]
+  lang.remove()
+
+  let cardTitle = cloneNode.children[0]
   let cardBody = cloneNode.children[1]
   let cardFooter = cloneNode.children[2]
+
+  console.log(repos)
 
   let project = repos.filter((repo) => repo.id === id)
 
@@ -119,13 +126,66 @@ const toggleModal = (id) => {
   let live = `https://${project[0].owner.login}.github.io/${project[0].name}`
   let haspages = project[0].has_pages
   let description = project[0].description
-  console.log(project[0].description)
+  let langUrl = project[0].languages_url
+  let languages = []
+
+  const loadLang = async () => {
+    const req = await fetch(langUrl)
+    const data = await req.json()
+    console.log(data)
+    renderL(Object.keys(data))
+  }
+
+  loadLang()
+
+  const bgColor = (color) => {
+    if (color === 'javascript')
+      return '#eab308'
+
+    if (color === 'html')
+      return '#f43f5e'
+
+    if (color === 'css')
+      return '#0ea5e9'
+
+    if (color === 'vue')
+      return '#10b981'
+  }
+
+  const renderL = (languages) => {
+    let html = ''
+    
+    if (languages) {
+      html += '<div class="languages">'
+
+      for (let l in languages) {
+        let color = languages[l].toLowerCase()
+        let language = languages[l]
+
+        html += `
+          <li style="background: ${bgColor(color)}">
+            ${language}
+          </li>
+        `
+      }
+
+      html += '</div>'
+      cardTitle.innerHTML += html 
+    }
+  }
 
   if (description) {
     cardBody.innerHTML += `
-        <p>${description}</p>
+      <p>${description}</p>
     `
+  } else {
+    cardBody.innerHTML += `
+      <p>Projeto sem descrição 😬</p>`
   }
+  
+  console.log(languages)
+
+
 
   cardFooter.innerHTML += `
     <div class="btn-group">
@@ -173,10 +233,6 @@ const loadProjects = async(data) => {
   const pages = '?&per_page=50'
   const response = await fetch(url + pages)
   repos = await response.json()
-
-  // for (let r in repos) {
-  //   arrProjects.push(repos)
-  // }
 
   let html = ''
 
@@ -247,7 +303,13 @@ const loadProjects = async(data) => {
               <i class="fa-brands fa-git-alt"></i>
             </span>
           </div>
-          <h5>${repos[i].language}</h5>
+          <span class="winnerLang">
+            Linguagem mais utilizada: 
+            <h5>
+              ${repos[i].language}
+            </h5>
+            <i class="fa fa-trophy"></i>
+          </span>
         </div>
         <div class="card-body">
           <a href="${projectImage}" target="_blank">

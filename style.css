@@ -248,13 +248,36 @@ section .projects {
   font-size: x-large;
 }
 
+.modal .card-title .languages {
+  padding: 10px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 250px;
+  gap: 10px;
+} 
+
+.modal .card-title .languages li {
+  padding: 5px 15px;
+  border-radius: 25px;
+  background-color: red;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .modal .card .card-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 25px;
+}
+
+.modal .card .card-body p {
   text-align: justify;
+  font-size: 15px;
 }
 
 .modal .card .card-footer {
@@ -278,4 +301,16 @@ section .projects {
   top: 5px;
   right: 10px;
   font-size: 24px;
+}
+
+.winnerLang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 15px;
+}
+
+.winnerLang i {
+  color: goldenrod;
 }
