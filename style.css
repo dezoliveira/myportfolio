@@ -314,3 +314,34 @@ section .projects {
 .winnerLang i {
   color: goldenrod;
 }
+
+section.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact .form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact .form input,
+.contact .form textarea {
+  width: 100%;
+}
+
+.contact .name-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.name-group label {
+  padding: 10px 0 0 0;
+}

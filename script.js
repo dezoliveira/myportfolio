@@ -286,6 +286,12 @@ const loadProjects = async(data) => {
     if (projectName === 'vuesouls')
       projectImage = "https://i.ibb.co/qrYn3k0/vuesouls.png"
 
+    if (projectName === 'vuesouls')
+    projectImage = "https://i.ibb.co/qrYn3k0/vuesouls.png"
+
+    if (projectName === 'beautysalon')
+    projectImage = "https://i.ibb.co/7jGkP09/beautysalon.png"
+
     html += `
       <div id="${repos[i].id}" class="card">
         <div class="card-title">
