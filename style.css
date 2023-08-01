@@ -196,6 +196,11 @@ section .projects {
   border: 1px solid crimson;
 }
 
+.btn-success {
+  background-color: #22c55e;
+  border: 1px solid #22c55e;
+}
+
 .btn-disabled {
   padding: 8px 12px;
   border: 0.1px solid gray;
@@ -320,6 +325,8 @@ section.contact {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  padding: 30px 30px;
 }
 
 .contact .form {
@@ -334,14 +341,45 @@ section.contact {
 .contact .form input,
 .contact .form textarea {
   width: 100%;
+  padding: 8px;
 }
 
-.contact .name-group {
+.contact .form input {
+  height: 35px;
+}
+
+.contact .form label b {
+  color: crimson;
+}
+
+.contact .form .name-group {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.name-group label {
+
+.contact .form .name-group label {
   padding: 10px 0 0 0;
+}
+
+.contact .form .form-button {
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+.contact .form .form-button button{
+  width: 100%;
+} 
+
+footer.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: black;
+}
+
+.footer p {
+  color: #fff;
 }

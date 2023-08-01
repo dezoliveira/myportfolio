@@ -3,7 +3,6 @@ const projects = document.getElementById('projects')
 const cloneRepo = document.getElementById('cloneRepo')
 const backdrop = document.querySelector(".backdrop")
 let repos = []
-// let arrProjects = []
 
 const loadProfile = (data) => {
   const stacks = data.bio.split("|")
@@ -370,6 +369,16 @@ const scroolStacks = () => {
     })
   }
 }
+
+const importantIputs = () => {
+  let contact = document.querySelectorAll('#contact label')
+  contact.forEach(element => {
+    element.style.fontWeight = '700'
+    element.innerHTML += '<b>*</b>'
+  });
+}
+
+importantIputs()
 
 githubApi()
 
