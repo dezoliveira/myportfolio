@@ -110,7 +110,7 @@ const toggleModal = (id) => {
   let btnShowMore = cloneNode.children[2].children[0]
   btnShowMore.remove()
 
-  let lang = cloneNode.children[0].children[2]
+  let lang = cloneNode.children[0].children[3]
   lang.remove()
 
   let cardTitle = cloneNode.children[0]
@@ -118,6 +118,8 @@ const toggleModal = (id) => {
   let cardFooter = cloneNode.children[2]
 
   console.log(repos)
+
+  console.log(cardTitle)
 
   let project = repos.filter((repo) => repo.id === id)
 
@@ -226,6 +228,28 @@ const modalClose = () => {
   document.body.style.overflow = 'hidden' 
 }
 
+const getStars = (star) => {
+  if (star !== undefined) {
+    if (star === '5star')
+    return '⭐⭐⭐⭐⭐'
+
+    if (star === '4star')
+      return '⭐⭐⭐⭐'
+
+    if (star === '3star')
+      return '⭐⭐⭐'
+
+    if (star === '2star')
+      return '⭐⭐'
+
+    if (star === '1star')
+      return '⭐'
+  } else {
+    return '--'
+  }
+
+}
+
 const loadProjects = async(data) => {
   console.log(data)
   const url = data.repos_url
@@ -291,6 +315,8 @@ const loadProjects = async(data) => {
     if (projectName === 'beautysalon')
     projectImage = "https://i.ibb.co/7jGkP09/beautysalon.png"
 
+    console.log(repos[i])
+
     html += `
       <div id="${repos[i].id}" class="card">
         <div class="card-title">
@@ -308,6 +334,9 @@ const loadProjects = async(data) => {
               <i class="fa-brands fa-git-alt"></i>
             </span>
           </div>
+          <span>
+          Level: ${getStars(repos[i].topics[0])}
+        </span>
           <span class="winnerLang">
             Linguagem mais utilizada: 
             <h5>
