@@ -1,7 +1,19 @@
+//Github stuff
 const profile = document.getElementById('profile')
 const projects = document.getElementById('projects')
 const cloneRepo = document.getElementById('cloneRepo')
-const backdrop = document.querySelector(".backdrop")
+
+//Modal
+const backdrop = document.querySelector('.backdrop')
+
+//Mails
+const userName = document.getElementById('userName')
+const companyName = document.getElementById('companyName')
+const mailAddress = document.getElementById('mailAddress')
+const mailMessage = document.getElementById('mailMessage')
+const mailButton = document.getElementById('mailButton')
+
+//Arrays
 let repos = []
 
 const loadProfile = (data) => {
@@ -406,6 +418,39 @@ const importantIputs = () => {
     element.innerHTML += '<b>*</b>'
   });
 }
+
+const clearForm = () => {
+  userName.textContent = ''
+  companyName.textContent = ''
+  mailAddress.textContent = ''
+  mailMessage.textContent = ''
+}
+
+const sendEmail = () => {
+  let user = userName.value
+  let company = companyName.value
+  let mailFrom = mailAddress.value
+  let mailTo = "andresoliveira@protonmail.com"
+  let message = mailMessage.value
+
+  let body = message
+
+  Email.send({
+    Host: "smtp.elasticemail.com",
+    Username: 'andresoliveira@protonmail.com',
+    Password: '7598DC3DB32C78E8878E631BDCA7016747AF',
+    To: mailTo,
+    From: 'andresoliveira@protonmail.com',
+    Subject: "My Portfolio",
+    Body: body
+  }).then(
+    message => alert("Mail sent successfully")
+  )
+
+  //clearForm()
+}
+
+mailButton.addEventListener('click', sendEmail)
 
 importantIputs()
 

@@ -11,9 +11,7 @@
   <navbar class="navbar">
     <div class="logo">
       <a href="https://www.github.com/dezoliveira" target="_blank">
-        <i class="fa-brands fa-github-alt">
-
-        </i>
+        <i class="fa-brands fa-github-alt"></i>
         @MyGit
       </a>
       <!-- <i class="fa-regular fa-hand-back-fist"> -->
@@ -39,23 +37,24 @@
       </header>
       <div class="form">
         <span class="name-group">
-          <label>Nome</label><input type="text" />
-          <label>Empresa</label><input type="text" />
-        </span>
-        <span>
-          <label>Email</label>
+          <label>Nome</label>
+          <input id="userName" type="text" />
+          <label id="companyName">Empresa</label>
           <input type="text" />
         </span>
         <span>
-          <label>Message</label><textarea rows="6" cols="20"></textarea>
+          <label>Email</label>
+          <input id="mailAddress" type="text" />
+        </span>
+        <span>
+          <label>Message</label><textarea id="mailMessage" rows="6" cols="20"></textarea>
         </span>
         <span class="form-button">
-          <button class="btn btn-success">
+          <button id="mailButton" class="btn btn-success">
             Enviar Mensagem
           </button>
         </span>
       </div>
-      
     </section>
       <div class="backdrop hide">
         <div class="modal">
@@ -67,5 +66,6 @@
     <p>Powered by @githubAPI</p>
   </footer>
   <script src="script.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 </html>
