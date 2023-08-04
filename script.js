@@ -13,6 +13,8 @@ const mailAddress = document.getElementById('mailAddress')
 const mailMessage = document.getElementById('mailMessage')
 const mailButton = document.getElementById('mailButton')
 
+const starsSelect = document.getElementById('starsSelect')
+
 //Arrays
 let repos = []
 
@@ -262,6 +264,17 @@ const getStars = (star) => {
 
 }
 
+const starsOrder = (stars) => {    
+  // let filteredArr = []
+  // for (let i in repos) {
+  //   if (repos[i].topics[0] === stars) {
+  //     filteredArr = [...filteredArr, repos[i]]
+  //   }
+  // }
+
+  // repos = [...filteredArr]
+}
+
 const loadProjects = async(data) => {
   console.log(data)
   const url = data.repos_url
@@ -269,13 +282,29 @@ const loadProjects = async(data) => {
   const response = await fetch(url + pages)
   repos = await response.json()
 
+  //order by star
+  repos.sort((a, b) => b.topics > a.topics ? 1 : -1)
+
   let html = ''
 
-  html += '<div class="projects">'
+  html += `
+    <label class="title">Projects</label> 
+  `
 
   html += `
-   <label class="title">Projects</label> 
+    <div class="select-box">
+      <label>Level: </label>
+      <select id="starsSelect">
+        <option value="5star">⭐⭐⭐⭐⭐</option>
+        <option value="4star">⭐⭐⭐⭐</option>
+        <option value="3star">⭐⭐⭐</option>
+        <option value="2star">⭐⭐</option>
+        <option value="1star">⭐</option>
+      </select>
+    </div>
   `
+
+    html += '<div class="project-list">'
 
   for (let i in repos){
     let projectName = repos[i].name
@@ -378,6 +407,13 @@ const loadProjects = async(data) => {
   html += '</div>'
 
   projects.innerHTML = html
+
+  let starsSelect = document.getElementById('starsSelect')
+
+  starsSelect.addEventListener('change', (e) => {
+    let value = e.target.selectedOptions[0].value
+    starsOrder(value)
+  })
   
 }
 
@@ -420,18 +456,18 @@ const importantIputs = () => {
 }
 
 const clearForm = () => {
-  userName.textContent = ''
-  companyName.textContent = ''
-  mailAddress.textContent = ''
-  mailMessage.textContent = ''
+  userName.value = ''
+  companyName.value = ''
+  mailAddress.value = ''
+  mailMessage.value = ''
 }
 
 const sendEmail = () => {
   let user = userName.value
   let company = companyName.value
   let mailFrom = mailAddress.value
-  let mailTo = "andresoliveira@protonmail.com"
   let message = mailMessage.value
+  let mailTo = "andresoliveira@protonmail.com"
 
   let body = message
 
@@ -443,11 +479,13 @@ const sendEmail = () => {
     From: 'andresoliveira@protonmail.com',
     Subject: "My Portfolio",
     Body: body
-  }).then(
+  })
+  .then(
     message => alert("Mail sent successfully")
   )
-
-  //clearForm()
+  .then(
+    clearForm()
+  )
 }
 
 mailButton.addEventListener('click', sendEmail)

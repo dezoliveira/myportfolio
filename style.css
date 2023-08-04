@@ -130,7 +130,15 @@ a {
   font-size: 24px;
 }
 
-section .projects {
+section.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.projects .project-list {
   display: grid;
   grid-auto-rows: auto;
   grid-gap: 4rem;
@@ -382,4 +390,14 @@ footer.footer {
 
 .footer p {
   color: #fff;
+}
+
+.select-box {
+  
+}
+
+.select-box select {
+  padding: 5px 10px;
+  border: 1px solid;
+  border-radius: 5px;
 }
