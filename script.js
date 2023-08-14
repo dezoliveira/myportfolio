@@ -265,14 +265,26 @@ const getStars = (star) => {
 }
 
 const starsOrder = (stars) => {    
-  // let filteredArr = []
-  // for (let i in repos) {
-  //   if (repos[i].topics[0] === stars) {
-  //     filteredArr = [...filteredArr, repos[i]]
-  //   }
-  // }
 
-  // repos = [...filteredArr]
+  //filter array by stars value (works on re-render)
+  repos.sort((a, b) => b.stars < a.topics ? 1 : -1)
+
+  let newStars = ''
+
+  if (stars !== '--') {
+    let starsNo = stars.substring(0, 1)
+    let starsString = stars.substring(1, 6)
+
+    if (parseInt(starsNo) !== 1)
+      newStars = starsNo + ' ' + starsString + 's'
+    else
+      newStars = starsNo + ' ' + starsString
+  } else {
+    newStars = stars
+  }
+
+  let countStars = document.getElementById('countStars')
+  countStars.textContent = newStars
 }
 
 const loadProjects = async(data) => {
@@ -292,7 +304,7 @@ const loadProjects = async(data) => {
   `
 
   html += `
-    <div class="select-box">
+    <div id="stars-container" class="select-box">
       <label>Level: </label>
       <select id="starsSelect">
         <option value="5star">⭐⭐⭐⭐⭐</option>
@@ -302,6 +314,14 @@ const loadProjects = async(data) => {
         <option value="1star">⭐</option>
       </select>
     </div>
+    <span>
+      <label>
+        <strong>Filter By:</strong>
+      </label>
+      <label id="countStars">
+        5 stars
+      </label>
+    </span>
   `
 
     html += '<div class="project-list">'
