@@ -401,3 +401,134 @@ footer.footer {
   border: 1px solid;
   border-radius: 5px;
 }
+
+/*Tablets*/
+@media (min-width: 768px) and (max-width: 1023px){
+  /*Navbar */
+  .navbar {
+    padding: 10px;
+    font-size: 30px;
+  }
+  
+  .navbar .logo {
+    color: #fff;
+  }
+  
+  .navbar ul {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .navbar li {
+    color: #fff;
+  }
+
+  .title {
+    font-size: 50px;
+  }
+
+  /* Profile */
+  .profile-info {
+    font-size: 25px;
+    gap: 40px;
+  }
+
+  .profile-info img {
+    width: 300px;
+    border-radius: 50%;
+  }
+
+  .stacks {
+    overflow-y: hidden;
+    width: 70%;
+  }
+
+  .arrows .arrow-left,
+  .arrows .arrow-right {
+    font-size: 50px;
+  }
+
+  .stacks .icon {
+    min-width: 60px;
+    max-width: 60px;
+    height: 60px;
+  }
+
+  /* Projects */
+  .projects {
+    font-size: 25px;
+  }
+
+	.projects .project-list {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    padding: 25px;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-gap: 4rem;
+  }
+
+  .card-title .winnerLang {
+    font-size: 18px;
+  }
+  
+  .card .card-body img{
+    width: 350px;
+  }
+  
+  .circle {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    border-radius: 50%;
+  }
+
+  .btn {
+    padding: 15px 25px;
+    font-size: 18px;
+  }
+
+  section.contact {
+    padding: 200px 30px 150px;
+  }
+
+  .contact .form {
+    font-size: 30px;
+    gap: 25px;
+  }
+
+  .contact .form input,
+  .contacr .form textarea {
+    padding: 30px 25px;
+    font-size: 25px;
+  }
+
+  .contact .form span {
+    width: 100%;
+  }
+
+  .contact .form .btn {
+    font-size: 25px;
+  }
+
+  /* Footer */
+  footer.footer {
+    height: 80px;
+    font-size: 30px;
+  }
+}
+
+/*Desktop*/
+@media (min-width: 1024px) and (max-width: 2000px){
+	.projects .project-list {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-gap: 4rem;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+    align-items: center;
+    grid-auto-columns: auto;
+    width: 100%;
+    padding: 25px;
+  }
+}
