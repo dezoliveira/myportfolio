@@ -461,10 +461,7 @@ footer.footer {
 
 	.projects .project-list {
     grid-template-columns: repeat(2, 1fr);
-    width: 100%;
     padding: 25px;
-    display: grid;
-    grid-auto-rows: auto;
     grid-gap: 4rem;
   }
 
@@ -520,15 +517,121 @@ footer.footer {
 
 /*Desktop*/
 @media (min-width: 1024px) and (max-width: 2000px){
-	.projects .project-list {
-    display: grid;
-    grid-auto-rows: auto;
-    grid-gap: 4rem;
-    grid-template-columns: repeat(4,1fr);
-    justify-items: center;
-    align-items: center;
-    grid-auto-columns: auto;
+  /*Navbar */
+  .navbar {
+    padding: 10px;
+    font-size: 25px;
+  }
+  
+  .navbar .logo {
+    color: #fff;
+  }
+  
+  .navbar ul {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .navbar li {
+    color: #fff;
+  }
+
+  .title {
+    font-size: 50px;
+  }
+
+  /* Profile */
+  .profile {
+    padding-top: 50px;
+  }
+
+  .profile-info {
+    font-size: 25px;
+    gap: 20px;
+  }
+
+  .profile-info img {
+    width: 300px;
+    border-radius: 50%;
+  }
+
+  .stacks {
+    overflow-y: hidden;
     width: 100%;
+  }
+
+  .stacks li {
+    min-width: 100px;
+  }
+
+  .arrows .arrow-left,
+  .arrows .arrow-right {
+    display: none;
+  }
+
+  .stacks .icon {
+    min-width: 60px;
+    max-width: 60px;
+    height: 60px;
+  }
+
+  .projects .project-list {
+    grid-template-columns: repeat(4, 1fr);
     padding: 25px;
+    grid-gap: 4rem;
+  }
+
+  .card-title .winnerLang {
+    font-size: 18px;
+  }
+  
+  .card .card-body img{
+    width: 350px;
+  }
+  
+  .circle {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    border-radius: 50%;
+  }
+
+  .btn {
+    padding: 10px 15px;
+    font-size: 18px;
+  }
+
+  section.contact {
+    padding: 200px 30px 100px;
+  }
+
+  .contact .form {
+    font-size: 30px;
+    gap: 25px;
+  }
+
+  .contact .form input,
+  .contacr .form textarea {
+    padding: 25px 15px;
+    font-size: 25px;
+  }
+
+  .contact .form {
+    width: 30%;
+  }
+
+  .contact .form span {
+    width: 100%;
+  }
+
+  .contact .form .btn {
+    width: 50%;
+    font-size: 25px;
+  }
+
+  /* Footer */
+  footer.footer {
+    height: 50px;
+    font-size: 30px;
   }
 }
