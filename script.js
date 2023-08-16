@@ -306,7 +306,7 @@ const loadProjects = async(data) => {
   html += `
     <div id="stars-container" class="select-box">
       <label>Level: </label>
-      <select id="starsSelect">
+      <select id="starsSelect" disabled>
         <option value="5star">⭐⭐⭐⭐⭐</option>
         <option value="4star">⭐⭐⭐⭐</option>
         <option value="3star">⭐⭐⭐</option>
@@ -314,7 +314,7 @@ const loadProjects = async(data) => {
         <option value="1star">⭐</option>
       </select>
     </div>
-    <span>
+    <span class="countStars">
       <label>
         <strong>Filter By:</strong>
       </label>
