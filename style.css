@@ -402,16 +402,11 @@ footer.footer {
   
 }
 
-.select-box, .countStars {
-  font-size: 25px;
-}
-
 .select-box select {
-  padding: 15px 25px;
+  padding: 8px 12px;
   border: 1px solid;
   border-radius: 5px;
   background-color: crimson;
-  font-size: 18px;
 }
 
 /* .select-box select {
@@ -651,6 +646,22 @@ footer.footer {
     max-width: 60px;
     height: 60px;
   }
+
+  .select-box, .countStars {
+    font-size: 25px;
+  }
+
+  .select-box select {
+    padding: 15px 25px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: crimson;
+    font-size: 18px;
+  }
+  
+  .select-box i {
+    font-size: 45px;
+  }  
 
   .projects .project-list {
     grid-template-columns: repeat(4, 1fr);
