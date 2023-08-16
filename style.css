@@ -656,11 +656,60 @@ footer.footer {
     border-radius: 50%;
   }
 
-  .btn {
+  .btn, .btn-disabled {
     padding: 10px 15px;
     font-size: 18px;
   }
 
+  /* Modal */
+  .modal {
+    width: 40%;
+    height: 90%;
+  }
+  
+  .modal .card img {
+    width: 100%;
+  }
+  
+  .modal .card .card-title {
+    font-size: 25px;
+  }
+  
+  .modal .card .card-title h1 {
+    font-size: 30px;
+  }
+  
+  .modal .card-title .languages {
+    max-width: 500px;
+    gap: 10px;
+  } 
+  
+  .modal .card-title .languages li {
+    padding: 5px 15px;
+    font-size: 20px;
+  }
+
+  .modal .card .card-body {
+    padding: 40px;
+  }
+  
+  .modal .card .card-body p {
+    text-align: justify;
+    font-size: 25px;
+  }
+  
+  .btn-github, .btn-live, .btn-disabled {
+    font-size: 25px;
+  }
+  
+  .close-icon {
+    top: 5px;
+    right: 20px;
+    font-size: 40px;
+  }
+
+
+  /* Contact */
   section.contact {
     padding: 200px 30px 100px;
   }
