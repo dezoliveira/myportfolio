@@ -98,7 +98,7 @@ const copyLink = async (link) => {
       Copiado para área de tranferência!\n
       Link: ${link}
       Abra um terminal git e digite:\n
-      git clone "{{ o link copiado}}"
+      git clone "${link}"
     `
   )
 }
