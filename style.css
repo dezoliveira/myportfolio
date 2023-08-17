@@ -43,7 +43,7 @@ a {
   font-weight: 500;
 }
 
-.profile {
+section.profile {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -459,6 +459,7 @@ footer.footer {
   .stacks {
     overflow-y: hidden;
     width: 70%;
+    font-size: 20px;
   }
 
   .arrows .arrow-left,
@@ -500,6 +501,24 @@ footer.footer {
 
   .btn {
     padding: 15px 25px;
+    font-size: 18px;
+  }
+
+  .stacks .icon {
+    min-width: 60px;
+    max-width: 60px;
+    height: 60px;
+  }
+
+  .select-box, .countStars {
+    font-size: 25px;
+  }
+
+  .select-box select {
+    padding: 15px 25px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: crimson;
     font-size: 18px;
   }
 
