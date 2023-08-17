@@ -434,6 +434,10 @@ const loadProjects = async(data) => {
     let value = e.target.selectedOptions[0].value
     starsOrder(value)
   })
+
+  starsSelect.addEventListener('click', (e) => {
+    alert('Essa funcionalidade está sendo implementada!')
+  })
   
 }
 
