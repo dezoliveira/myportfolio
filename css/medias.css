@@ -178,6 +178,10 @@
     height: 80px;
     font-size: 30px;
   }
+
+  #preloader {
+    background-size: 100px;
+  }
 }
 
 /*Notebooks, small desktops */
@@ -353,6 +357,10 @@
   footer.footer {
     height: 60px;
     font-size: 20px;
+  }
+
+  #preloader {
+    background-size: 100px;
   }
 }
 
@@ -540,5 +548,9 @@
   footer.footer {
     height: 50px;
     font-size: 30px;
+  }
+
+  #preloader {
+    background-size: 100%;
   }
 }
