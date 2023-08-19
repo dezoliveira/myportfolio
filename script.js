@@ -137,6 +137,10 @@ const toggleModal = (id) => {
   let lang = cloneNode.children[0].children[3]
   lang.remove()
 
+  let card = cloneNode
+  card.style.padding = 0
+  card.style.boxShadow = "none"
+
   let cardTitle = cloneNode.children[0]
   let cardBody = cloneNode.children[1]
   let cardFooter = cloneNode.children[2]
@@ -209,8 +213,6 @@ const toggleModal = (id) => {
   }
   
   console.log(languages)
-
-
 
   cardFooter.innerHTML += `
     <div class="btn-group">
