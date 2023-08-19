@@ -53,7 +53,7 @@
 
   /* Projects */
   .projects {
-    font-size: 25px;
+    font-size: 20px;
   }
 
 	.projects .project-list {
@@ -63,11 +63,7 @@
   }
 
   .card-title .winnerLang {
-    font-size: 18px;
-  }
-  
-  .card .card-body img{
-    width: 350px;
+    font-size: 15px;
   }
   
   .circle {
@@ -78,7 +74,7 @@
   }
 
   .btn {
-    padding: 15px 25px;
+    padding: 10px 15px;
     font-size: 18px;
   }
 
@@ -323,8 +319,6 @@
     right: 20px;
     font-size: 40px;
   }
-
-
 
   /* Contact */
   section.contact {

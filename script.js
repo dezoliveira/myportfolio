@@ -15,6 +15,16 @@ const mailButton = document.getElementById('mailButton')
 
 const starsSelect = document.getElementById('starsSelect')
 
+const loader = document.getElementById("preloader")
+
+const closePreLoader = () => {
+  loader.style.display = "none"
+}
+
+window.addEventListener("load", () => {
+  setTimeout(closePreLoader, 2000)
+})
+
 //Arrays
 let repos = []
 
@@ -396,8 +406,8 @@ const loadProjects = async(data) => {
             </span>
           </div>
           <span>
-          Level: ${getStars(repos[i].topics[0])}
-        </span>
+            Level: ${getStars(repos[i].topics[0])}
+          </span>
           <span class="winnerLang">
             Linguagem mais utilizada: 
             <h5>
@@ -511,6 +521,8 @@ const sendEmail = () => {
     clearForm()
   )
 }
+
+
 
 mailButton.addEventListener('click', sendEmail)
 
