@@ -30,7 +30,7 @@ let repos = []
 
 const loadProfile = (data) => {
   const stacks = data.bio.split("|")
-  console.log(stacks)
+  //console.log(stacks)
 
   let html = ''
   html += '<div class="profile-info">'
@@ -101,7 +101,6 @@ const loadProfile = (data) => {
 }
 
 const copyLink = async (link) => {
-  console.log(link)
   navigator.clipboard.writeText(link)
   alert(
     `
@@ -114,8 +113,6 @@ const copyLink = async (link) => {
 }
 
 const toggleModal = (id) => {
-  console.log(id)
-  // console.log(arrProjects)
   let node = document.getElementById(id)
   let cloneNode = node.cloneNode(true)
   let backdrop = document.querySelector(".backdrop")
@@ -144,11 +141,6 @@ const toggleModal = (id) => {
   let cardTitle = cloneNode.children[0]
   let cardBody = cloneNode.children[1]
   let cardFooter = cloneNode.children[2]
-
-  console.log(repos)
-
-  console.log(cardTitle)
-
   let project = repos.filter((repo) => repo.id === id)
 
   let url = project[0].html_url
@@ -161,7 +153,6 @@ const toggleModal = (id) => {
   const loadLang = async () => {
     const req = await fetch(langUrl)
     const data = await req.json()
-    console.log(data)
     renderL(Object.keys(data))
   }
 
@@ -212,8 +203,6 @@ const toggleModal = (id) => {
       <p>Projeto sem descrição 😬</p>`
   }
   
-  console.log(languages)
-
   cardFooter.innerHTML += `
     <div class="btn-group">
       <a href="${url}" target="_blank">
@@ -300,7 +289,7 @@ const starsOrder = (stars) => {
 }
 
 const loadProjects = async(data) => {
-  console.log(data)
+  //console.log(data)
   const url = data.repos_url
   const pages = '?&per_page=50'
   const response = await fetch(url + pages)
@@ -388,7 +377,7 @@ const loadProjects = async(data) => {
     if (projectName === 'beautysalon')
     projectImage = "https://i.ibb.co/7jGkP09/beautysalon.png"
 
-    console.log(repos[i])
+    //console.log(repos[i])
 
     html += `
       <div id="${repos[i].id}" class="card">
