@@ -262,6 +262,8 @@ section.projects {
   display: flex;
   align-items: center;
   justify-content: center;
+  scroll-behavior: smooth;
+  transition: all .3s linear 0s;
 }
 
 .modal .card img {
@@ -443,14 +445,28 @@ footer.footer {
   z-index: 100;
 }
 
-/* .teste {
-  height: 100vh;
-  position: fixed;
-  width: 100%;
-  z-index: -100;
-  background-color: #e5e5f7;
-  opacity: 0.5;
-  background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#1f1f1f 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #1f1f1f 2px, #e5e5f7 2px) -1px 0;
-  background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
-} */
+.comboStars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.close {
+  animation: close 0.1s;
+}
+
+.open {
+  animation: open 0.1s;
+}
+
+@keyframes open {
+  0% {transform: translateX(100%);}
+  100% {transform: translateX(0%);}
+}
+
+@keyframes close {
+  0% {transform: translateX(0%);}
+  100% {transform: translateX(100%);}
+}
 

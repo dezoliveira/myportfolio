@@ -2,6 +2,7 @@
 const profile = document.getElementById('profile')
 const projects = document.getElementById('projects')
 const cloneRepo = document.getElementById('cloneRepo')
+const comboStars = document.getElementById('comboStars')
 
 //Modal
 const backdrop = document.querySelector('.backdrop')
@@ -12,8 +13,6 @@ const companyName = document.getElementById('companyName')
 const mailAddress = document.getElementById('mailAddress')
 const mailMessage = document.getElementById('mailMessage')
 const mailButton = document.getElementById('mailButton')
-
-const starsSelect = document.getElementById('starsSelect')
 
 const loader = document.getElementById("preloader")
 
@@ -30,7 +29,6 @@ let repos = []
 
 const loadProfile = (data) => {
   const stacks = data.bio.split("|")
-  //console.log(stacks)
 
   let html = ''
   html += '<div class="profile-info">'
@@ -119,11 +117,13 @@ const toggleModal = (id) => {
   let modal = document.querySelector(".modal")
 
   backdrop.classList.remove('hide')
+  modal.classList.add('open')
   document.body.style.overflow = 'hidden'
 
   backdrop.addEventListener('click', (e) => {
     if(e.target.className != 'modal') {
       backdrop.classList.add('hide')
+      modal.classList.add('close')
       document.body.style.overflow = 'auto'
     }
   })
@@ -148,7 +148,6 @@ const toggleModal = (id) => {
   let haspages = project[0].has_pages
   let description = project[0].description
   let langUrl = project[0].languages_url
-  let languages = []
 
   const loadLang = async () => {
     const req = await fetch(langUrl)
@@ -262,17 +261,15 @@ const getStars = (star) => {
   } else {
     return '--'
   }
-
 }
 
-const starsOrder = (stars) => {    
-
-  //filter array by stars value (works on re-render)
-  repos.sort((a, b) => b.stars < a.topics ? 1 : -1)
+const starsOrder = (stars) => { 
+  //filter array by stars value
+  repos.sort((s) => stars > s.topics ? 1 : -1)
 
   let newStars = ''
 
-  if (stars !== '--') {
+  if (stars !== '--') {    
     let starsNo = stars.substring(0, 1)
     let starsString = stars.substring(1, 6)
 
@@ -286,46 +283,14 @@ const starsOrder = (stars) => {
 
   let countStars = document.getElementById('countStars')
   countStars.textContent = newStars
+
+  renderTemplate(repos)
 }
 
-const loadProjects = async(data) => {
-  //console.log(data)
-  const url = data.repos_url
-  const pages = '?&per_page=50'
-  const response = await fetch(url + pages)
-  repos = await response.json()
-
-  //order by star
-  repos.sort((a, b) => b.topics > a.topics ? 1 : -1)
-
+const renderTemplate = (repos) => {
   let html = ''
 
-  html += `
-    <label class="title">Projects</label> 
-  `
-
-  html += `
-    <div id="stars-container" class="select-box">
-      <label>Level: </label>
-      <select id="starsSelect" disabled>
-        <option value="5star">⭐⭐⭐⭐⭐</option>
-        <option value="4star">⭐⭐⭐⭐</option>
-        <option value="3star">⭐⭐⭐</option>
-        <option value="2star">⭐⭐</option>
-        <option value="1star">⭐</option>
-      </select>
-    </div>
-    <span class="countStars">
-      <label>
-        <strong>Filter By:</strong>
-      </label>
-      <label id="countStars">
-        5 stars
-      </label>
-    </span>
-  `
-
-    html += '<div class="project-list">'
+  html += '<div class="project-list">'
 
   for (let i in repos){
     let projectName = repos[i].name
@@ -377,8 +342,6 @@ const loadProjects = async(data) => {
     if (projectName === 'beautysalon')
     projectImage = "https://i.ibb.co/7jGkP09/beautysalon.png"
 
-    //console.log(repos[i])
-
     html += `
       <div id="${repos[i].id}" class="card">
         <div class="card-title">
@@ -428,30 +391,77 @@ const loadProjects = async(data) => {
   html += '</div>'
 
   projects.innerHTML = html
+}
+
+const loadProjects = async(data) => {
+  //console.log(data)
+  const url = data.repos_url
+  const pages = '?&per_page=50'
+  const response = await fetch(url + pages)
+  repos = await response.json()
+
+  //order by star
+  repos.sort((a, b) => b.topics > a.topics ? 1 : -1)
+
+  let html = ''
+
+  html += `
+    <label class="title">Projects</label> 
+  `
+
+  html += `
+    <div id="stars-container" class="select-box">
+      <label>Level: </label>
+      <select id="starsSelect">
+        <option value="5star" selected>⭐⭐⭐⭐⭐</option>
+        <option value="4star">⭐⭐⭐⭐</option>
+        <option value="3star">⭐⭐⭐</option>
+        <option value="2star">⭐⭐</option>
+        <option value="1star">⭐</option>
+      </select>
+    </div>
+    <span class="countStars">
+      <label>
+        <strong>Filter By:</strong>
+      </label>
+      <label id="countStars">
+        5 stars
+      </label>
+    </span>
+  `
+
+  comboStars.innerHTML = html
 
   let starsSelect = document.getElementById('starsSelect')
 
   starsSelect.addEventListener('change', (e) => {
-    let value = e.target.selectedOptions[0].value
+    let value = e.target.value
     starsOrder(value)
   })
 
-  starsSelect.addEventListener('click', (e) => {
-    alert('Essa funcionalidade está sendo implementada!')
-  })
+  renderTemplate(repos)
   
 }
 
 const githubData = (data) => {
-  loadProfile(data)
-  loadProjects(data)
- }
+  if(data.message){
+    profile.innerHTML = `<h1>${data.message}</h1>`
+  } else {
+    loadProfile(data)
+    loadProjects(data)
+  }
+}
 
 const githubApi = async () => {
-  user = 'dezoliveira'
-  const response = await fetch(`https://api.github.com/users/${user}`)
-  const data = await response.json()
-  githubData(data)
+  const user = 'dezoliveira'
+
+  try {
+    const response = await fetch(`https://api.github.com/users/${user}`)
+    const data = await response.json()
+    githubData(data)
+  } catch (error) {
+    console.log('erro ao carregar api: ' + error)
+  }
 }
 
 const scroolStacks = () => {
@@ -480,44 +490,9 @@ const importantIputs = () => {
   });
 }
 
-const clearForm = () => {
-  userName.value = ''
-  companyName.value = ''
-  mailAddress.value = ''
-  mailMessage.value = ''
-}
-
-const sendEmail = () => {
-  let user = userName.value
-  let company = companyName.value
-  let mailFrom = mailAddress.value
-  let message = mailMessage.value
-  let mailTo = "andresoliveira@protonmail.com"
-
-  let body = message
-
-  Email.send({
-    Host: "smtp.elasticemail.com",
-    Username: 'andresoliveira@protonmail.com',
-    Password: '7598DC3DB32C78E8878E631BDCA7016747AF',
-    To: mailTo,
-    From: 'andresoliveira@protonmail.com',
-    Subject: "My Portfolio",
-    Body: body
-  })
-  .then(
-    message => alert("Mail sent successfully")
-  )
-  .then(
-    clearForm()
-  )
-}
-
-
-
-mailButton.addEventListener('click', sendEmail)
-
-importantIputs()
-
+//Callback
 githubApi()
+
+//Styles on load
+importantIputs()
 
