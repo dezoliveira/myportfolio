@@ -14,6 +14,10 @@ a {
   text-decoration: none;
 }
 
+body {
+  position: relative;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -27,6 +31,10 @@ a {
 
 .navbar .logo {
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .navbar ul {
@@ -407,6 +415,8 @@ section.contact {
 } 
 
 footer.footer {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -418,19 +428,30 @@ footer.footer {
   color: #fff;
 }
 
+.float-button {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+}
+
+.float-button i {
+  font-size: 80px;
+  color: #22c55e;
+  background-color: #fff;
+  transition: 0.2s all;
+}
+
+.float-button i:hover {
+  cursor: pointer;
+  font-size: 85px;
+}
+
 .select-box select:disabled {
   padding: 8px 12px;
   border: 1px solid;
   border-radius: 5px;
   background-color: crimson;
 }
-
-/* .select-box select {
-  -moz-appearance:none; 
-  -webkit-appearance:none;
-  appearance:none;
-}
-*/
 
 .select-box i {
   font-size: 45px;
