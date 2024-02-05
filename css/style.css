@@ -37,6 +37,7 @@ body {
   gap: 20px;
 }
 
+
 .navbar ul {
   display: flex;
   gap: 30px;
@@ -131,7 +132,8 @@ section.profile {
   max-width: 50px;
   border-radius: 50%;
   height: 50px;
-  background-color: crimson;
+  background-color: #4f46e5;
+  color: #fff;
 }
 
 .stacks .icon i {
@@ -226,8 +228,8 @@ section.projects {
 }
 
 .btn-primary {
-  background-color: crimson;
-  border: 1px solid crimson;
+  background-color: #4f46e5;
+  border: 1px solid #4f46e5;
 }
 
 .btn-success {
@@ -392,7 +394,7 @@ section.contact {
 }
 
 .contact .form label b {
-  color: crimson;
+  color: #4f46e5;
 }
 
 .contact .form .name-group {
@@ -435,9 +437,9 @@ footer.footer {
 }
 
 .float-button i {
-  font-size: 80px;
+  font-size: 50px;
   color: #22c55e;
-  background-color: #fff;
+  /* background-color: #fff; */
   transition: 0.2s all;
 }
 
@@ -450,7 +452,7 @@ footer.footer {
   padding: 8px 12px;
   border: 1px solid;
   border-radius: 5px;
-  background-color: crimson;
+  background-color: #4f46e5;
 }
 
 .select-box i {

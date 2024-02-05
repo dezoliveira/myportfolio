@@ -203,6 +203,10 @@
   .navbar .logo {
     color: #fff;
   }
+
+  .navbar .logo span {
+    display: flex;
+  }
   
   .navbar ul {
     display: flex;
