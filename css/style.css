@@ -22,7 +22,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  position: absolute;
+  position: sticky;
   width: 100%;
   top: 0;
   background-color: black;
