@@ -443,11 +443,6 @@ footer.footer {
   transition: 0.2s all;
 }
 
-.float-button i:hover {
-  cursor: pointer;
-  font-size: 85px;
-}
-
 .select-box select:disabled {
   padding: 8px 12px;
   border: 1px solid;

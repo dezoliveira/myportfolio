@@ -371,6 +371,15 @@
     font-size: 20px;
   }
 
+  .float-button i {
+    font-size: 80px;
+  }
+
+  .float-button i:hover {
+    cursor: pointer;
+    font-size: 85px;
+  }
+
   #preloader {
     background-size: 100px;
   }
@@ -560,6 +569,15 @@
   footer.footer {
     height: 50px;
     font-size: 30px;
+  }
+
+  .float-button i {
+    font-size: 80px;
+  }
+
+  .float-button i:hover {
+    cursor: pointer;
+    font-size: 85px;
   }
 
   #preloader {
