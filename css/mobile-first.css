@@ -18,15 +18,22 @@ body {
   position: relative;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  position: sticky;
+  position: absolute;
   width: 100%;
   top: 0;
   background-color: black;
   padding: 10px;
+  height: 50px;
 }
 
 .navbar .logo {
@@ -469,6 +476,15 @@ footer.footer {
   align-items: center;
   justify-content: center;
 }
+
+select#starsSelect {
+  background-color: #4f46e5;
+  padding: 8px;
+}
+
+/* .projects {
+  background-color:#4f46e5;
+} */
 
 .close {
   animation: close 0.1s;

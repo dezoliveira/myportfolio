@@ -158,9 +158,9 @@
 
 
   /* Contact */
-  section.contact {
+  /* section.contact {
     padding: 200px 30px 150px;
-  }
+  } */
 
   .contact .form {
     font-size: 30px;
@@ -582,5 +582,16 @@
 
   #preloader {
     background-size: 128px;
+  }
+
+  .lottie {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .profile-pic {
+    position: relative;
   }
 }

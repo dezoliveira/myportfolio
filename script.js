@@ -34,7 +34,7 @@ const loadProfile = (data) => {
   html += '<div class="profile-info">'
 
   html += `
-    <label class="title">Profile</label>
+    <label class="title"></label>
     <img src="${data.avatar_url}"/>
     <a href="./src/CV.pdf" download='CV - Andres Oliveira'>
       <button class="btn btn-primary">Download CV</button>
