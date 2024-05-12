@@ -40,12 +40,12 @@ const loadProfile = (data) => {
       <button class="btn btn-primary">Download CV</button>
     </a>
     <h1>${data.name}</h1>
+    <h3>${stacks[0]}</h3>
     <span>
       <i class="fa-solid fa-location-dot"></i>
-      <h1>${data.location}</h1>
+      <h4>${data.location}</h4>
       <img style="width: 32px" src="src/brazil.png"/>
     </span>
-    <h3>${stacks[0]}</h3>
     <h3>Stacks:</h3>
   `
 
@@ -57,6 +57,8 @@ const loadProfile = (data) => {
   
   for(let i = 1; i < stacks.length; i++) {
     let icons = stacks[i].trim().toLowerCase().replace('.', '')
+
+    console.log(icons)
 
     if (icons === 'html')
       icons = 'html5'
@@ -70,8 +72,14 @@ const loadProfile = (data) => {
     if (icons === 'reactjs')
       icons = 'react'
 
-    if (icons === 'api')
-      icons = 'node'
+    if (icons === 'vue')
+      icons = 'vuejs'
+
+    if (icons === 'nextjs')
+      icons = 'next'
+
+    if (icons === 'svelte')
+      icons = 'svelte'
 
     icons = "fa" + "-" + icons
     //
@@ -409,7 +417,7 @@ const loadProjects = async(data) => {
   let html = ''
 
   html += `
-    <label class="title">Projects</label> 
+    <label class="title">Projetos</label> 
   `
 
   html += `
@@ -425,10 +433,10 @@ const loadProjects = async(data) => {
     </div>
     <span class="countStars">
       <label>
-        <strong>Filter By:</strong>
+        <strong>Filtrar por:</strong>
       </label>
       <label id="countStars">
-        5 stars
+        5 estrelas
       </label>
     </span>
   `

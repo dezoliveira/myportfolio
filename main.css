@@ -1,2 +1,70 @@
 @import url("css/mobile-first.css");
 @import url("css/medias.css");
+
+#particles-container {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+}
+
+canvas{ 
+  display: block;
+}
+
+body {
+  background-color: #020617;
+}
+
+h1,
+h2,
+h3, 
+h4,
+p,
+label,
+span {
+  color: #f8fafc;
+}
+
+.card,
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card p, 
+.card label, 
+.card span {
+  color: #020617;
+}
+
+button, .icon {
+  cursor: pointer;
+}
+
+a {
+  transition: .7s;
+}
+
+a:hover {
+  color: blue;
+}
+
+.btn-primary {
+  transition: .7s;
+}
+
+.btn-primary:hover,
+.icon:hover {
+  background-color: #f8fafc;
+  color: blue;
+}
+
+.close-icon {
+  color: #020617;
+}
+
+.close-icon:hover {
+  cursor: pointer;
+  opacity: .9;
+  transform: scale(1.1)
+}
