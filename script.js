@@ -155,8 +155,8 @@ const toggleModal = (id) => {
   let project = repos.filter((repo) => repo.id === id)
 
   let url = project[0].html_url
-  let live = `https://${project[0].owner.login}.github.io/${project[0].name}`
-  let haspages = project[0].has_pages
+  let hasHomepage = project[0].homepage
+  let live = project[0].homepage
   let description = project[0].description
   let langUrl = project[0].languages_url
 
@@ -224,10 +224,10 @@ const toggleModal = (id) => {
       </a>
       <a href="${live}" target="_blank">
         <button 
-          ${!haspages ? 
-              'class="btn-disabled"' 
-            : 'class="btn btn-live"'}
-          ${!haspages && 'disabled'}
+        ${!hasHomepage ? 
+            'class="btn-disabled"' 
+          : 'class="btn btn-live"'}
+        ${!hasHomepage && 'disabled'}
         >
           Live Project
         </button>
@@ -307,6 +307,9 @@ const renderTemplate = (repos) => {
     let projectName = repos[i].name
     let projectImage = 'https://i.ibb.co/GFvs7qq/default.png'
     let cloneUrl = repos[i].clone_url
+    let isInProduction = repos[i].topics[1]
+
+    console.log(repos[i])
 
     if (projectName === 'AgendaJS')
       projectImage = "https://i.ibb.co/FXhDVGr/AgendaJS.png"
@@ -347,56 +350,61 @@ const renderTemplate = (repos) => {
     if (projectName === 'vuesouls')
       projectImage = "https://i.ibb.co/qrYn3k0/vuesouls.png"
 
-    if (projectName === 'vuesouls')
-    projectImage = "https://i.ibb.co/qrYn3k0/vuesouls.png"
-
     if (projectName === 'beautysalon')
     projectImage = "https://i.ibb.co/7jGkP09/beautysalon.png"
 
-    html += `
-      <div id="${repos[i].id}" class="card">
-        <div class="card-title">
-          <h1>${projectName}</h1>
-          <div class="project-status">
-            <span class="project-visibility">
-              <div class="circle"></div>
-              <h5>${repos[i].visibility}</h5>
+    if (projectName === 'ibula')
+    projectImage = "https://i.ibb.co/khjxX2h/ibula.png"
+
+    if (isInProduction) {
+      console.log(repos[i])
+
+      html += `
+        <div id="${repos[i].id}" class="card">
+          <div class="card-title">
+            <h1>${projectName}</h1>
+            <div class="project-status">
+              <span class="project-visibility">
+                <div class="circle"></div>
+                <h5>${repos[i].visibility}</h5>
+              </span>
+              <span 
+                id="cloneRepo" 
+                onclick="copyLink('${cloneUrl}')"
+              >
+                <label>Clone Repo</label> 
+                <i class="fa-brands fa-git-alt"></i>
+              </span>
+            </div>
+            <span>
+              Level: ${getStars(repos[i].topics[0])}
             </span>
-            <span 
-              id="cloneRepo" 
-              onclick="copyLink('${cloneUrl}')"
-            >
-              <label>Clone Repo</label> 
-              <i class="fa-brands fa-git-alt"></i>
+            <span class="winnerLang">
+              Linguagem mais utilizada: 
+              <h5>
+                ${repos[i].language}
+              </h5>
+              <i class="fa fa-trophy"></i>
             </span>
           </div>
-          <span>
-            Level: ${getStars(repos[i].topics[0])}
-          </span>
-          <span class="winnerLang">
-            Linguagem mais utilizada: 
-            <h5>
-              ${repos[i].language}
-            </h5>
-            <i class="fa fa-trophy"></i>
-          </span>
+          <div class="card-body">
+            <a href="${projectImage}" target="_blank">
+              <img src="${projectImage}"/>
+            </a>
+          </div>
+          <div class="card-footer">
+            <button 
+              class="btn btn-primary" 
+              id="showMore" 
+              onclick="toggleModal(${repos[i].id})"
+            >
+              Ver Mais
+            </button>
+          </div>
         </div>
-        <div class="card-body">
-          <a href="${projectImage}" target="_blank">
-            <img src="${projectImage}"/>
-          </a>
-        </div>
-        <div class="card-footer">
-          <button 
-            class="btn btn-primary" 
-            id="showMore" 
-            onclick="toggleModal(${repos[i].id})"
-          >
-            Ver Mais
-          </button>
-        </div>
-      </div>
-    ` 
+      ` 
+    }
+
   }
 
   html += '</div>'
