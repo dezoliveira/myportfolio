@@ -18,6 +18,10 @@ body {
   position: relative;
 }
 
+section.profile {
+  height: 100vh;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -63,7 +67,7 @@ section.profile {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .profile-info {
