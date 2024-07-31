@@ -58,8 +58,6 @@ const loadProfile = (data) => {
   for(let i = 1; i < stacks.length; i++) {
     let icons = stacks[i].trim().toLowerCase().replace('.', '')
 
-    console.log(icons)
-
     if (icons === 'html')
       icons = 'html5'
 
@@ -309,8 +307,6 @@ const renderTemplate = (repos) => {
     let cloneUrl = repos[i].clone_url
     let isInProduction = repos[i].topics[1]
 
-    console.log(repos[i])
-
     if (projectName === 'AgendaJS')
       projectImage = "https://i.ibb.co/FXhDVGr/AgendaJS.png"
 
@@ -369,7 +365,6 @@ const renderTemplate = (repos) => {
       projectImage = "https://i.ibb.co/L0wBSDq/play-pic.png"
 
     if (isInProduction) {
-      console.log(repos[i])
 
       html += `
         <div id="${repos[i].id}" class="card">
@@ -425,7 +420,6 @@ const renderTemplate = (repos) => {
 }
 
 const loadProjects = async(data) => {
-  //console.log(data)
   const url = data.repos_url
   const pages = '?&per_page=50'
   const response = await fetch(url + pages)
