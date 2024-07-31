@@ -351,10 +351,22 @@ const renderTemplate = (repos) => {
       projectImage = "https://i.ibb.co/qrYn3k0/vuesouls.png"
 
     if (projectName === 'beautysalon')
-    projectImage = "https://i.ibb.co/7jGkP09/beautysalon.png"
+      projectImage = "https://i.ibb.co/7jGkP09/beautysalon.png"
 
     if (projectName === 'ibula')
-    projectImage = "https://i.ibb.co/khjxX2h/ibula.png"
+      projectImage = "https://i.ibb.co/khjxX2h/ibula.png"
+
+    if (projectName === 'nova-users')
+      projectImage = "https://i.ibb.co/VDqV2Vt/nova-users.png"
+
+    if (projectName === 'kompass')
+      projectImage = "https://i.ibb.co/ryMZKcC/kompass.png"
+
+    if (projectName === 'harpia-countries')
+      projectImage = "https://i.ibb.co/TKdXzzY/harpia-countries.png"
+
+    if (projectName === 'play')
+      projectImage = "https://i.ibb.co/L0wBSDq/play-pic.png"
 
     if (isInProduction) {
       console.log(repos[i])
