@@ -14,6 +14,11 @@ canvas{
 
 body {
   background-color: #020617;
+  cursor: url('src/images/cursor-auto3.png'), auto;
+}
+
+button:hover, a:hover, i:hover, .icon:hover {
+  cursor: url('src/images/cursor-pointer2.png'), pointer;
 }
 
 h1,
