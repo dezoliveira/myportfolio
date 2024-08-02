@@ -20,8 +20,63 @@ const closePreLoader = () => {
   loader.style.display = "none"
 }
 
-window.addEventListener("load", () => {
+// Welcome message
+const showWelcomeMessage = () => {
+  let backdrop = document.querySelector(".backdrop")
+  let modal = document.querySelector(".modal")
+
+  backdrop.classList.remove('hide')
+  modal.classList.add('open')
+  document.body.style.overflow = 'hidden'
+
+  modal.innerHTML += `
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Bem vindo ao <br/>meu portfolio!</h2>
+        <img src="/src/images/welcome-image-square.png" />
+      </div>
+      <div class="modal-body">
+        <h2 style="text-align: center; padding: 10px 0">
+          ⚠️
+            Esse é um portfolio um pouco diferente... 
+          ⚠️
+        </h2>
+        <p>
+        Aqui, eu consumo a api pública do github e exibo os meus melhores projetos, tagueado por estrelas e que estão publicados em produção.
+        Você pode tanto testá-los, quanto checar o código.
+        </p>
+        <p>
+          Aqui eu usei apenas HTML, CSS e Javascript! Mas eu mando muito bem com framworks! Dá uma olhada no meu Linkedin <a href="https://www.linkedin.com/in/dezoliveira" target="_blank"><strong>Ver Linkedin</strong></a>
+        </p>
+        <p>
+          Para ver a lista completa <a href="https://www.github.com/dezoliveira" target="_blank"><strong>Acesse aqui</strong></a>
+        </p>
+        <div class="check-group">
+          <input type="checkbox" checked />
+          <p>Não exibir novamente</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button onclick="hideWelcomeModal()" class="btn btn-primary">Continuar</button>
+      </div>
+    </div>
+  `
+
+}
+
+// Close Welcome Modal
+const hideWelcomeModal = () => {
+  let backdrop = document.querySelector(".backdrop")
+  let modal = document.querySelector(".modal")
+  
+  backdrop.classList.add('hide')
+  modal.classList.add('close')
+  document.body.style.overflow = 'auto'
+}
+
+window.addEventListener("load", async () => {
   setTimeout(closePreLoader, 4000)
+  setTimeout(showWelcomeMessage, 4100)
 })
 
 //Arrays
