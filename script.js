@@ -21,7 +21,7 @@ const closePreLoader = () => {
 }
 
 window.addEventListener("load", () => {
-  setTimeout(closePreLoader, 2000)
+  setTimeout(closePreLoader, 4000)
 })
 
 //Arrays
