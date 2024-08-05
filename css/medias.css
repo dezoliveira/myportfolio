@@ -190,6 +190,15 @@
   #preloader {
     background-size: 100px;
   }
+
+  .float-button i {
+    font-size: 60px;
+  }
+
+  .float-button i:hover {
+    cursor: pointer;
+    font-size: 65px;
+  }
   
   .modal-header {
     height: 200px;
@@ -403,12 +412,12 @@
   }
 
   .float-button i {
-    font-size: 80px;
+    font-size: 60px;
   }
 
   .float-button i:hover {
     cursor: pointer;
-    font-size: 85px;
+    font-size: 65px;
   }
 
   #preloader {
@@ -603,12 +612,12 @@
   }
 
   .float-button i {
-    font-size: 80px;
+    font-size: 60px;
   }
 
   .float-button i:hover {
     cursor: pointer;
-    font-size: 85px;
+    font-size: 65px;
   }
 
   #preloader {

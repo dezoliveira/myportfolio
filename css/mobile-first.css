@@ -440,15 +440,23 @@ footer.footer {
 
 .float-button {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
+  right: 20px;
+  bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .float-button i {
-  font-size: 50px;
-  color: #22c55e;
+  font-size: 60px;
+  /* color: #22c55e; */
   /* background-color: #fff; */
   transition: 0.2s all;
+}
+
+.float-button i:hover {
+  cursor: pointer;
+  font-size: 65px;
 }
 
 .select-box select:disabled {
