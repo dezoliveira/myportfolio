@@ -75,7 +75,7 @@ a:hover {
   transform: scale(1.1)
 }
 
-.modal {
+/* .modal {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -85,9 +85,6 @@ a:hover {
 
 .modal-header {
   display: block;
-  /* position: absolute;
-  top: 0;
-  left: 0; */
   width: 100%;
   height: 300px;
   background-color: #4f46e5;
@@ -104,9 +101,6 @@ a:hover {
 }
 
 .modal-header img {
-  /* position: absolute;
-  top: 0;
-  right: 0; */
   width: 300px;
 }
 
@@ -117,7 +111,6 @@ a:hover {
 .modal-body p {
   font-size: larger;
   padding: 15px 0;
-  /* padding: 15px; */
 }
 
 .modal-body strong {
@@ -136,7 +129,6 @@ a:hover {
 }
 
 .check-group {
-  /* padding: 10px 15px; */
   display: flex;
   gap: 5px;
-}
+} */

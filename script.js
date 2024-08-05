@@ -75,6 +75,9 @@ const hideWelcomeModal = () => {
 }
 
 window.addEventListener("load", async () => {
+  //Callback
+  githubApi()
+
   setTimeout(closePreLoader, 4000)
   setTimeout(showWelcomeMessage, 4100)
 })
@@ -569,9 +572,6 @@ const importantIputs = () => {
     element.innerHTML += '<b>*</b>'
   });
 }
-
-//Callback
-githubApi()
 
 //Styles on load
 importantIputs()

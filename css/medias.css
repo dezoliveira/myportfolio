@@ -190,6 +190,37 @@
   #preloader {
     background-size: 100px;
   }
+  
+  .modal-header {
+    height: 200px;
+    justify-content: space-between;
+  }
+
+  .modal-header h2 {
+    font-size: xx-large;
+  }
+  
+  .modal-header img {
+    display: block;
+    height: 200px;
+  }
+  
+  .modal-body {
+    padding: 15px 30px;
+  }
+  
+  .modal-body h2 {
+    font-size: x-large;
+  }
+  
+  .modal-body p {
+    font-size: large;
+    padding: 15px 0;
+  }
+  
+  .modal-footer {
+    padding: 50px;
+  }
 }
 
 /*Notebooks, small desktops */
@@ -386,8 +417,8 @@
 }
 
 
-/*Desktop*/
-@media (min-width: 1201px) and (max-width: 2000px){
+/*Desktop/Big bo monitors*/
+@media (min-width: 1201px){
   /*Navbar */
   .navbar {
     padding: 10px;
@@ -594,4 +625,39 @@
   .profile-pic {
     position: relative;
   }
+
+  .modal-header {
+    height: 250px;
+    justify-content: space-between;
+    font-size: xx-large;
+  }
+
+  .modal-header h2 {
+    padding: 0 25px;
+    font-size: larger;
+  }
+
+  .modal-header img {
+    display: block;
+    width: 250px;
+  }
+
+  .modal-body {
+    padding: 30px 50px;
+  }
+
+  .modal-body p {
+    font-size: larger;
+    padding: 15px 0;
+  }
+
+  .modal-body h2 {
+    font-size: x-large;
+  }
+
+  .modal-footer {
+    padding: 50px;
+  }
 }
+
+
