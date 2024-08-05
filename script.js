@@ -117,27 +117,35 @@ const loadProfile = (data) => {
     let icons = stacks[i].trim().toLowerCase().replace('.', '')
 
     if (icons === 'html')
-      icons = 'html5'
+      icons = 'fa fa-html5'
 
     if (icons === 'css')
-      icons = 'css3'
+      icons = 'fa fa-css3'
 
     if (icons === 'javascript')
-      icons = 'js'
+      icons = 'fa fa-js'
 
+    if (icons === 'vuejs')
+      icons = 'fa fa-vuejs'
+    
     if (icons === 'reactjs')
-      icons = 'react'
+      icons = 'fa fa-react'
 
-    if (icons === 'vue')
-      icons = 'vuejs'
+    if (icons === 'bootstrap')
+      icons = 'fa fa-bootstrap'
 
+    if (icons === 'git')
+      icons = 'fa fa-git'
+    
     if (icons === 'nextjs')
-      icons = 'next'
+      icons = 'devicon-nextjs-plain'
 
     if (icons === 'svelte')
-      icons = 'svelte'
+      icons = 'devicon-svelte-plain'
 
-    icons = "fa" + "-" + icons
+    if (icons === 'tailwind')
+      icons = 'devicon-tailwindcss-original'
+
     //
     html += `
     <li>
@@ -152,11 +160,8 @@ const loadProfile = (data) => {
   }
 
   html += '</ul>'
-
   html += '<span class="arrow arrow-right"> > </span>'
-
   html += '</div>'
-
   html += '</div>'
 
   profile.innerHTML = html
