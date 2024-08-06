@@ -16,6 +16,7 @@ const mailButton = document.getElementById('mailButton')
 
 const loader = document.getElementById("preloader")
 
+// Close preloader
 const closePreLoader = () => {
   loader.style.display = "none"
 }
@@ -52,7 +53,7 @@ const showWelcomeMessage = () => {
           Para ver a lista completa <a href="https://www.github.com/dezoliveira" target="_blank"><strong>Acesse aqui</strong></a>
         </p>
         <div class="check-group">
-          <input type="checkbox" checked />
+          <input id="toggleMessage" type="checkbox" checked />
           <p>Não exibir novamente</p>
         </div>
       </div>
@@ -72,14 +73,37 @@ const hideWelcomeModal = () => {
   backdrop.classList.add('hide')
   modal.classList.add('close')
   document.body.style.overflow = 'auto'
+
+  // Register if Welcome Message was show on Local Storage
+  const toggleMessage = document.getElementById('toggleMessage')
+
+  if (toggleMessage.checked) {
+    localStorage.setItem('welcomeMessage', true)
+  }
 }
 
 window.addEventListener("load", async () => {
-  //Callback
+  // Check if Welcome Message was show on app
+  let localMessage = localStorage.getItem('welcomeMessage')
+
+  // if not, create value on storage
+  if (localMessage === null) {
+    localStorage.setItem('welcomeMessage', false)
+    localMessage = localStorage.getItem('welcomeMessage')
+  }
+
+  // Callback github api
   githubApi()
 
+  // Preload loader
   setTimeout(closePreLoader, 4000)
-  setTimeout(showWelcomeMessage, 4100)
+
+  // Show Welcome Message if wasn't load before (value = false)
+  setTimeout(() => {
+      if (!JSON.parse(localMessage)) {
+        setTimeout(showWelcomeMessage, 100)
+      }
+  }, 4100)
 })
 
 //Arrays
