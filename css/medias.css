@@ -327,7 +327,7 @@
   /* Modal */
   .modal {
     width: 70%;
-    height: 90%;
+    height: 70%;
   }
   
   .modal .card img {
@@ -422,6 +422,42 @@
 
   #preloader {
     background-size: 100px;
+  }
+  
+  .modal-header {
+    height: 300px;
+    justify-content: space-between;
+  }
+  
+  .modal-header h2 {
+    padding: 0 25px;
+    font-size: xx-large;
+  }
+  
+  .modal-header img {
+    display: block;
+    height: 300px;
+  }
+  
+  .modal-body {
+    padding: 50px;
+  }
+  
+  .modal-body h2 {
+    font-size: x-large;
+  }
+  
+  .modal-body p {
+    font-size: larger;
+    padding: 15px 0;
+  }
+  
+  .modal-footer {
+    padding: 50px;
+  }
+
+  .modal-footer button {
+    font-size: larger;
   }
 }
 

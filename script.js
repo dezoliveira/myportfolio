@@ -19,6 +19,7 @@ const loader = document.getElementById("preloader")
 // Close preloader
 const closePreLoader = () => {
   loader.style.display = "none"
+  document.body.style.overflow = "auto"
 }
 
 // Welcome message
@@ -92,11 +93,11 @@ window.addEventListener("load", async () => {
     localMessage = localStorage.getItem('welcomeMessage')
   }
 
-  // Callback github api
-  githubApi()
-
   // Preload loader
   setTimeout(closePreLoader, 4000)
+
+  // Callback github api
+  setTimeout(githubApi, 4100)
 
   // Show Welcome Message if wasn't load before (value = false)
   setTimeout(() => {

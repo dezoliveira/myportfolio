@@ -15,6 +15,7 @@ canvas{
 body {
   background-color: #020617;
   cursor: url('src/images/cursor-auto.png'), auto;
+  overflow: hidden;
 }
 
 button:hover, a:hover, i:hover, .icon:hover {
