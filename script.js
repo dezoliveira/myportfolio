@@ -34,7 +34,7 @@ const showWelcomeMessage = () => {
     <div class="modal-content">
       <div class="modal-header">
         <h2>Bem vindo ao <br/>meu portfolio!</h2>
-        <img src="/src/images/welcome-image-square.png" />
+        <img src="./src/images/welcome-image-square.png" />
       </div>
       <div class="modal-body">
         <h2 style="text-align: center; padding: 10px 0">
