@@ -509,7 +509,7 @@ const renderTemplate = (repos) => {
 
 const loadProjects = async(data) => {
   const url = data.repos_url
-  const pages = '?&per_page=50'
+  const pages = '?&per_page=100'
   const response = await fetch(url + pages)
   repos = await response.json()
 
