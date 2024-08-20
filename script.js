@@ -452,6 +452,12 @@ const renderTemplate = (repos) => {
     if (projectName === 'play')
       projectImage = "https://i.ibb.co/L0wBSDq/play-pic.png"
 
+    if (projectName === 'todo-pinia')
+      projectImage = "https://i.ibb.co/0C7hQcN/pinia.png"
+
+    if (projectName === 'hashboard')
+      projectImage = "https://i.ibb.co/mhrc05m/hashboard.png"
+
     if (isInProduction) {
 
       html += `
