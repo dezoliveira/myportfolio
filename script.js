@@ -458,6 +458,12 @@ const renderTemplate = (repos) => {
     if (projectName === 'hashboard')
       projectImage = "https://i.ibb.co/mhrc05m/hashboard.png"
 
+    if (projectName === 'lynx')
+      projectImage = "https://i.ibb.co/VCr59Jd/lynx.png"
+
+    if (projectName === 'doggy')
+      projectImage = "https://i.ibb.co/xYZW3NY/doggy.png"
+
     if (isInProduction) {
 
       html += `
@@ -609,6 +615,6 @@ const importantIputs = () => {
   });
 }
 
-//Styles on load
+// Styles on load
 importantIputs()
 
