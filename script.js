@@ -467,9 +467,13 @@ const renderTemplate = (repos) => {
     if (isInProduction) {
 
       html += `
-        <div id="${repos[i].id}" class="card" data-aos="fade-down"
-  data-aos-easing="linear"
-     data-aos-duration="1500">
+        <div
+          id="${repos[i].id}"
+          class="card"
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
           <div class="card-title">
             <h1>${projectName}</h1>
             <div class="project-status">
